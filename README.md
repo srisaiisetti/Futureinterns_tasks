@@ -21,8 +21,8 @@ Social links for GitHub and LinkedIn
 Built with reusable React components
 
 ## Tech stack
-React
-HTML
-Tailwind CSS
-lucide-react icons
+React , 
+HTML , 
+Tailwind CSS , 
+lucide-react icons , 
 JavaScript
