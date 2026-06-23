@@ -3,7 +3,7 @@ It my first task named Personal Professional Portfolio Website in Future Interns
 Isetti Sri Sai Portfolio Website is a modern, responsive personal portfolio built with React, Vite, and Tailwind CSS.
 It showcases a student developer profile with a polished dark UI, animated hero section, and interactive project showcase.
 
-**What the website includes**
+## **What the website includes**
 Hero section with animated typing titles and CTA buttons
 About section describing skills, goals, and interests
 Skills section with categorized technical expertise and progress indicators
