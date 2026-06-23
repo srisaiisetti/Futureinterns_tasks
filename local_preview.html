@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Sai | Portfolio | Data Science & Full Stack</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D97706' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m8 3 4 8 5-5 5 15H2L8 3z'/%3E%3C/svg%3E" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkBg: '#0D0E10',
+            darkCard: '#16181C',
+            accentGold: '#D9A74A',
+            accentAmber: '#E65C00',
+          },
+          fontFamily: {
+            sans: ['Outfit', 'Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Sleek custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0D0E10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #23262D;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4F5563;
+    }
+
+    /* Ambient background mesh */
+    .bg-mesh {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(217, 167, 74, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(230, 92, 0, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(217, 167, 74, 0.05) 0px, transparent 50%);
+    }
+
+    .glass-panel {
+      background: rgba(22, 24, 28, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(217, 167, 74, 0.08);
+    }
+
+    .glass-panel-hover:hover {
+      background: rgba(22, 24, 28, 0.8);
+      border-color: rgba(217, 167, 74, 0.25);
+      box-shadow: 0 0 20px rgba(217, 167, 74, 0.08);
+    }
+
+    /* Typewriter Cursor */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #D9A74A; }
+    }
+
+    .typing-cursor {
+      border-right: 3px solid #D9A74A;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+  </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 bg-mesh relative min-h-screen">
+
+  <!-- Ambient blurs -->
+  <div class="absolute top-[20%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-accentGold/5 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
+  <div class="absolute bottom-[20%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-accentAmber/5 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-white/5 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-2 group">
+          <div class="bg-gradient-to-tr from-accentGold to-accentAmber p-2 rounded-lg text-white transform group-hover:rotate-12 transition-transform duration-300">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <span class="font-outfit font-extrabold text-xl md:text-2xl bg-gradient-to-r from-white via-amber-200 to-amber-400 bg-clip-text text-transparent group-hover:text-accentGold transition-colors duration-300">
+            SRI SAI
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-1 lg:space-x-2" id="nav-links-desktop">
+          <a href="#home" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 text-accentGold bg-accentGold/10">Home</a>
+          <a href="#about" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5">About</a>
+          <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5">Skills</a>
+          <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5">Projects</a>
+          <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5">Education</a>
+          <a href="#resume" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5">Resume</a>
+          <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5">Contact</a>
+        </div>
+
+        <!-- Mobile Drawer button -->
+        <div class="flex md:hidden">
+          <button id="menu-btn" class="text-gray-400 hover:text-accentGold p-2 rounded-md transition-colors focus:outline-none">
+            <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="md:hidden absolute w-full left-0 bg-darkBg/95 border-b border-white/10 backdrop-blur-lg transition-all duration-300 overflow-hidden max-h-0 opacity-0">
+      <div class="px-4 py-4 space-y-2">
+        <a href="#home" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-accentGold bg-accentGold/10">Home</a>
+        <a href="#about" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5">About</a>
+        <a href="#skills" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5">Skills</a>
+        <a href="#projects" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5">Projects</a>
+        <a href="#education" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5">Education</a>
+        <a href="#resume" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5">Resume</a>
+        <a href="#contact" class="mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen pt-24 md:pt-32 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(#262830_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center z-10">
+      
+      <!-- Text details -->
+      <div class="md:col-span-7 flex flex-col justify-center space-y-6 text-center md:text-left order-2 md:order-1">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-outfit font-extrabold tracking-tight">
+          Isetti  <br class="sm:hidden" />
+          <span class="bg-gradient-to-r from-accentGold via-amber-400 to-amber-600 bg-clip-text text-transparent" style="text-shadow: 0 0 15px rgba(217, 167, 74, 0.25);">
+            Sri Sai
+          </span>
+        </h1>
+
+        <div class="h-10 sm:h-12 flex items-center justify-center md:justify-start">
+          <p class="text-lg sm:text-xl lg:text-2xl text-gray-300 font-medium">
+            <span class="text-accentGold font-semibold font-outfit uppercase tracking-wide id-typing"></span>
+            <span class="typing-cursor ml-0.5"></span>
+          </p>
+        </div>
+
+        <p class="text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed mx-auto md:mx-0">
+          A B.Tech Data Science student and passionate full-stack developer based in India. I specialize in building responsive, aesthetically pleasing web applications and applying data analysis to solve real-world problems.
+        </p>
+
+        <!-- Social Connections (Buttons highly visible and redirected) -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+          <a href="https://github.com/srisaiisetti" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2.5 px-5 py-3 bg-white/5 border border-white/10 hover:border-accentGold hover:bg-accentGold/10 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-accentGold/10 group">
+            <i data-lucide="github" class="w-5 h-5 text-accentGold group-hover:scale-110 transition-transform"></i>
+            <span class="font-outfit font-bold text-sm">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/isetti-srisai-10b5a6322?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2.5 px-5 py-3 bg-white/5 border border-white/10 hover:border-accentGold hover:bg-accentGold/10 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-accentGold/10 group">
+            <i data-lucide="linkedin" class="w-5 h-5 text-accentGold group-hover:scale-110 transition-transform"></i>
+            <span class="font-outfit font-bold text-sm">LinkedIn</span>
+          </a>
+          <a href="mailto:contact@srisai.dev" class="flex items-center space-x-2.5 px-5 py-3 bg-white/5 border border-white/10 hover:border-accentGold hover:bg-accentGold/10 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-accentGold/10 group">
+            <i data-lucide="mail" class="w-5 h-5 text-accentGold group-hover:scale-110 transition-transform"></i>
+            <span class="font-outfit font-bold text-sm">Email</span>
+          </a>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+          <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-accentGold to-amber-600 hover:from-yellow-500 hover:to-amber-500 text-white font-bold rounded-xl flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-accentGold/20">
+            <span>View Projects</span>
+            <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i>
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 bg-white/5 border border-white/10 hover:bg-white/10 text-gray-200 font-bold rounded-xl text-center transition-all duration-300 transform hover:-translate-y-1">
+            Contact Me
+          </a>
+          <button onclick="downloadResume()" class="w-full sm:w-auto px-8 py-3.5 bg-amber-950/20 border border-accentGold/20 hover:border-accentGold/50 hover:bg-accentGold/10 text-accentGold font-bold rounded-xl flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-1">
+            <i data-lucide="download" class="w-[18px] h-[18px]"></i>
+            <span>Download Resume</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Stylized Monogram Profile Monolith (No avatar image of boy) -->
+      <div class="md:col-span-5 flex justify-center order-1 md:order-2">
+        <div class="relative group w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+          <div class="absolute inset-0 bg-gradient-to-tr from-accentGold to-accentAmber rounded-3xl blur-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-300 animate-pulse-slow"></div>
+          <div class="relative w-full h-full bg-darkCard border border-white/10 group-hover:border-accentGold/40 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 transform group-hover:scale-[1.02] flex flex-col justify-center items-center p-8">
+            <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-gradient-to-br from-accentGold/20 to-accentAmber/10 border border-accentGold/30 flex items-center justify-center text-white text-5xl sm:text-6xl font-outfit font-extrabold shadow-lg shadow-accentGold/10 group-hover:scale-105 transition-all duration-500">
+              SS
+            </div>
+            <div class="mt-8 text-center">
+              <h3 class="font-outfit text-xl font-extrabold text-white tracking-wide">Sri Sai</h3>
+              <p class="text-xs text-accentGold uppercase tracking-widest font-bold mt-1.5">Data Scientist & Web Dev</p>
+              <p class="text-[10px] text-gray-500 mt-1">Pragati Engineering College</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section id="about" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-accentGold font-extrabold mb-2 font-outfit">About Me</h2>
+        <p class="text-3xl sm:text-4xl font-outfit font-extrabold text-white">Discover My Professional Journey</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accentGold to-accentAmber mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Bio column -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-panel p-8 rounded-2xl border border-white/5 space-y-6">
+            <h3 class="text-xl font-outfit font-bold text-white flex items-center space-x-2">
+              <i data-lucide="book-open" class="text-accentGold w-5 h-5"></i>
+              <span>Introduction</span>
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+              I am a B.Tech Data Science student at <strong class="text-accentGold font-semibold">Pragati Engineering College</strong> with a strong drive to build scalable software and extract meaningful insights from complex data.
+            </p>
+            <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+              My technical interests lie at the intersection of modern frontend architectures and advanced analytics. I love translating product ideas into production-ready web designs while leveraging machine learning modules to enhance utility.
+            </p>
+          </div>
+
+          <div class="glass-panel p-8 rounded-2xl border border-white/5 space-y-6">
+            <h3 class="text-xl font-outfit font-bold text-white flex items-center space-x-2">
+              <i data-lucide="target" class="text-accentGold w-5 h-5"></i>
+              <span>Career Goals</span>
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+              My goal is to secure a software engineering or data analyst internship where I can contribute to high-impact projects. Long-term, I aspire to develop AI-powered SaaS platforms and bridge the gap between data intelligence and client-facing interfaces.
+            </p>
+          </div>
+        </div>
+
+        <!-- Areas card column -->
+        <div class="lg:col-span-7 space-y-6">
+          <h3 class="text-2xl font-outfit font-extrabold text-white text-center lg:text-left mb-6">Core Fields of Interest</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- 1. Web Dev -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300">
+              <div class="bg-white/5 p-3 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="terminal" class="text-accentGold w-6 h-6"></i>
+              </div>
+              <h4 class="text-lg font-outfit font-bold text-white mb-2">Web Development</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Building responsive frontend structures, dynamic UIs with React, and clean web application architectures.</p>
+            </div>
+            <!-- 2. AI -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300">
+              <div class="bg-white/5 p-3 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="brain" class="text-accentGold w-6 h-6"></i>
+              </div>
+              <h4 class="text-lg font-outfit font-bold text-white mb-2">Artificial Intelligence</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Exploring machine learning algorithms, deep learning applications, and integrating smart APIs into apps.</p>
+            </div>
+            <!-- 3. Data Science -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300">
+              <div class="bg-white/5 p-3 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="bar-chart-3" class="text-accentGold w-6 h-6"></i>
+              </div>
+              <h4 class="text-lg font-outfit font-bold text-white mb-2">Data Science</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Analyzing datasets, applying statistical methods, and engineering visual dashboards to tell data stories.</p>
+            </div>
+            <!-- 4. Content Creation -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300">
+              <div class="bg-white/5 p-3 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="video" class="text-accentGold w-6 h-6"></i>
+              </div>
+              <h4 class="text-lg font-outfit font-bold text-white mb-2">Content Creation</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Sharing tech knowledge, programming tips, and project walkthroughs with the developer community.</p>
+            </div>
+          </div>
+
+          <!-- Quick Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-6">
+            <div class="glass-panel p-4 rounded-xl text-center">
+              <span class="block text-2xl md:text-3xl font-outfit font-extrabold text-accentGold">College</span>
+              <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider block mt-1">Pragati Eng.</span>
+            </div>
+            <div class="glass-panel p-4 rounded-xl text-center">
+              <span class="block text-2xl md:text-3xl font-outfit font-extrabold text-accentGold">CGPA</span>
+              <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider block mt-1">8.5+ (Expected)</span>
+            </div>
+            <div class="glass-panel p-4 rounded-xl text-center">
+              <span class="block text-2xl md:text-3xl font-outfit font-extrabold text-accentGold">Projects</span>
+              <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider block mt-1">10+ Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative bg-white/[0.01]">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-accentGold font-extrabold mb-2 font-outfit">My Skills</h2>
+        <p class="text-3xl sm:text-4xl font-outfit font-extrabold text-white">Technical Arsenal & Expertise</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accentGold to-accentAmber mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Frontend -->
+        <div class="space-y-6">
+          <div class="border-l-4 border-accentGold pl-4">
+            <h3 class="text-xl font-outfit font-extrabold text-white">Frontend Development</h3>
+            <p class="text-gray-400 text-sm mt-1">Building responsive, modern, user-friendly client interfaces.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- HTML5 -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="layout" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">HTML5</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Advanced</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">90%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+            <!-- CSS3 -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="code-2" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">CSS3</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Advanced</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">85%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Javascript -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="braces" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">JavaScript</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Advanced</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">85%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            <!-- React.js -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="code-2" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">React.js</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Intermediate</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">80%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programming & Data Sci -->
+        <div class="space-y-6">
+          <div class="border-l-4 border-accentGold pl-4">
+            <h3 class="text-xl font-outfit font-extrabold text-white">Programming & Data Science</h3>
+            <p class="text-gray-400 text-sm mt-1">Analyzing information and solving complex algorithmic challenges.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Python -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="braces" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">Python</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Advanced</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">85%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            <!-- SQL -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="database" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">SQL</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Intermediate</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">80%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow & Tools -->
+        <div class="space-y-6">
+          <div class="border-l-4 border-accentGold pl-4">
+            <h3 class="text-xl font-outfit font-extrabold text-white">Version Control & Workflow</h3>
+            <p class="text-gray-400 text-sm mt-1">Managing project source codes and collaborative pipelines.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- GitHub -->
+            <div class="glass-panel glass-panel-hover p-6 rounded-2xl group transition-all duration-300 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-accentGold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/5 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="github" class="text-amber-500 w-[18px] h-[18px]"></i>
+                  </div>
+                  <span class="font-outfit font-bold text-white text-base">GitHub & Git</span>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-white/5 text-accentGold rounded-md border border-white/5">Advanced</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>Proficiency</span>
+                  <span class="font-bold text-gray-300">85%</span>
+                </div>
+                <div class="h-2 bg-darkBg rounded-full overflow-hidden border border-white/5">
+                  <div class="h-full bg-gradient-to-r from-accentGold to-accentAmber rounded-full transition-all duration-1000 ease-out" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <div class="text-center mb-12">
+        <h2 class="text-xs uppercase tracking-widest text-accentGold font-extrabold mb-2 font-outfit">My Portfolio</h2>
+        <p class="text-3xl sm:text-4xl font-outfit font-extrabold text-white">Featured Projects & Implementations</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accentGold to-accentAmber mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex justify-center items-center space-x-4 mb-12">
+        <button onclick="filterProjects('all')" id="btn-filter-all" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-accentGold to-accentAmber text-white shadow-lg shadow-accentGold/20 border border-transparent font-outfit">All</button>
+        <button onclick="filterProjects('react')" id="btn-filter-react" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold uppercase tracking-wider bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5 font-outfit">React.js</button>
+        <button onclick="filterProjects('vanilla')" id="btn-filter-vanilla" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold uppercase tracking-wider bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5 font-outfit">Vanilla JS</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+        <!-- 1. Restaurant -->
+        <div class="project-card glass-panel rounded-3xl overflow-hidden border border-white/5 group hover:border-accentGold/30 transition-all duration-500 flex flex-col h-full" data-category="vanilla">
+          <div class="relative overflow-hidden aspect-video bg-darkBg border-b border-white/5">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600" alt="Restaurant Website" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            <div class="absolute inset-0 bg-darkBg/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
+              <a href="https://example.com/restaurant" target="_blank" class="p-4 bg-accentGold hover:bg-yellow-500 text-white rounded-full transition-transform duration-300 transform hover:scale-110 shadow-lg shadow-accentGold/30">
+                <i data-lucide="external-link" class="w-5.5 h-5.5"></i>
+              </a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="p-4 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 transition-transform duration-300 transform hover:scale-110">
+                <i data-lucide="github" class="w-5.5 h-5.5"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">HTML5</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">CSS3</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">JavaScript</span>
+              </div>
+              <h3 class="text-xl font-outfit font-extrabold text-white group-hover:text-accentGold transition-colors duration-300 flex items-center space-x-2">
+                <i data-lucide="folder-git-2" class="text-accentGold w-[18px] h-[18px]"></i>
+                <span>Restaurant Website</span>
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">A highly responsive restaurant landing and ordering UI. Features custom search filters for food categories, an interactive booking system, and clean CSS-based card hover transitions.</p>
+            </div>
+            <div class="flex md:hidden items-center space-x-4 pt-4 mt-4 border-t border-white/5">
+              <a href="https://example.com/restaurant" target="_blank" class="flex-1 text-center py-2 bg-accentGold/10 text-accentGold text-xs font-bold rounded-lg border border-accentGold/20">Live Demo</a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="flex-1 text-center py-2 bg-white/5 text-gray-300 text-xs font-bold rounded-lg border border-white/10">GitHub Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. YouTube Clone -->
+        <div class="project-card glass-panel rounded-3xl overflow-hidden border border-white/5 group hover:border-accentGold/30 transition-all duration-500 flex flex-col h-full" data-category="react">
+          <div class="relative overflow-hidden aspect-video bg-darkBg border-b border-white/5">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=600" alt="YouTube Clone UI" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            <div class="absolute inset-0 bg-darkBg/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
+              <a href="https://example.com/youtube" target="_blank" class="p-4 bg-accentGold hover:bg-yellow-500 text-white rounded-full transition-transform duration-300 transform hover:scale-110 shadow-lg shadow-accentGold/30">
+                <i data-lucide="external-link" class="w-5.5 h-5.5"></i>
+              </a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="p-4 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 transition-transform duration-300 transform hover:scale-110">
+                <i data-lucide="github" class="w-5.5 h-5.5"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">React.js</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">CSS3</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">JavaScript</span>
+              </div>
+              <h3 class="text-xl font-outfit font-extrabold text-white group-hover:text-accentGold transition-colors duration-300 flex items-center space-x-2">
+                <i data-lucide="folder-git-2" class="text-accentGold w-[18px] h-[18px]"></i>
+                <span>YouTube Clone UI</span>
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">A modern video grid platform mapping YouTube feeds. Includes a toggleable sidebar navigation, client-side category sorting, responsive header search bars, and high-fidelity video detail page layout.</p>
+            </div>
+            <div class="flex md:hidden items-center space-x-4 pt-4 mt-4 border-t border-white/5">
+              <a href="https://example.com/youtube" target="_blank" class="flex-1 text-center py-2 bg-accentGold/10 text-accentGold text-xs font-bold rounded-lg border border-accentGold/20">Live Demo</a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="flex-1 text-center py-2 bg-white/5 text-gray-300 text-xs font-bold rounded-lg border border-white/10">GitHub Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Portfolio Website -->
+        <div class="project-card glass-panel rounded-3xl overflow-hidden border border-white/5 group hover:border-accentGold/30 transition-all duration-500 flex flex-col h-full" data-category="react">
+          <div class="relative overflow-hidden aspect-video bg-darkBg border-b border-white/5">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=600" alt="Portfolio Website" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            <div class="absolute inset-0 bg-darkBg/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
+              <a href="#" class="p-4 bg-accentGold hover:bg-yellow-500 text-white rounded-full transition-transform duration-300 transform hover:scale-110 shadow-lg shadow-accentGold/30">
+                <i data-lucide="external-link" class="w-5.5 h-5.5"></i>
+              </a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="p-4 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 transition-transform duration-300 transform hover:scale-110">
+                <i data-lucide="github" class="w-5.5 h-5.5"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">React.js</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">Tailwind CSS</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">JavaScript</span>
+              </div>
+              <h3 class="text-xl font-outfit font-extrabold text-white group-hover:text-accentGold transition-colors duration-300 flex items-center space-x-2">
+                <i data-lucide="folder-git-2" class="text-accentGold w-[18px] h-[18px]"></i>
+                <span>Portfolio Website</span>
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Sri Sai's recruiter-friendly personal portfolio. Built with a bespoke typing text script, sleek glassmorphism dashboard details, responsive timelines, and fully integrated contact validations.</p>
+            </div>
+            <div class="flex md:hidden items-center space-x-4 pt-4 mt-4 border-t border-white/5">
+              <a href="#" class="flex-1 text-center py-2 bg-accentGold/10 text-accentGold text-xs font-bold rounded-lg border border-accentGold/20">Live Demo</a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="flex-1 text-center py-2 bg-white/5 text-gray-300 text-xs font-bold rounded-lg border border-white/10">GitHub Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Future Interns Dashboard -->
+        <div class="project-card glass-panel rounded-3xl overflow-hidden border border-white/5 group hover:border-accentGold/30 transition-all duration-500 flex flex-col h-full" data-category="react">
+          <div class="relative overflow-hidden aspect-video bg-darkBg border-b border-white/5">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Future Interns Dashboard" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            <div class="absolute inset-0 bg-darkBg/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
+              <a href="https://example.com/intern-dashboard" target="_blank" class="p-4 bg-accentGold hover:bg-yellow-500 text-white rounded-full transition-transform duration-300 transform hover:scale-110 shadow-lg shadow-accentGold/30">
+                <i data-lucide="external-link" class="w-5.5 h-5.5"></i>
+              </a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="p-4 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 transition-transform duration-300 transform hover:scale-110">
+                <i data-lucide="github" class="w-5.5 h-5.5"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">React.js</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">CSS3</span>
+                <span class="text-[10px] sm:text-xs font-semibold font-outfit uppercase px-2.5 py-1 bg-amber-950/20 text-accentGold border border-accentGold/10 rounded-md">JavaScript</span>
+              </div>
+              <h3 class="text-xl font-outfit font-extrabold text-white group-hover:text-accentGold transition-colors duration-300 flex items-center space-x-2">
+                <i data-lucide="folder-git-2" class="text-accentGold w-[18px] h-[18px]"></i>
+                <span>Future Interns Internship Projects</span>
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">A tracking dashboard for internship deliverables. Features search parameters, completed tasks checklists, project file download buttons, and dynamic progress bar status indicators.</p>
+            </div>
+            <div class="flex md:hidden items-center space-x-4 pt-4 mt-4 border-t border-white/5">
+              <a href="https://example.com/intern-dashboard" target="_blank" class="flex-1 text-center py-2 bg-accentGold/10 text-accentGold text-xs font-bold rounded-lg border border-accentGold/20">Live Demo</a>
+              <a href="https://github.com/srisaiisetti" target="_blank" class="flex-1 text-center py-2 bg-white/5 text-gray-300 text-xs font-bold rounded-lg border border-white/10">GitHub Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
+  <section id="education" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative bg-white/[0.01]">
+    <div class="max-w-4xl mx-auto z-10 relative">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-accentGold font-extrabold mb-2 font-outfit">Academic Background</h2>
+        <p class="text-3xl sm:text-4xl font-outfit font-extrabold text-white">Education Timeline</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accentGold to-accentAmber mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="relative border-l-2 border-white/10 pl-8 ml-4 sm:ml-6 space-y-12">
+        <div class="relative group">
+          <!-- Dot bubble icon -->
+          <div class="absolute -left-[53px] top-0 p-3 bg-gradient-to-tr from-accentGold to-accentAmber rounded-2xl text-white transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-accentGold/20">
+            <i data-lucide="graduation-cap" class="w-5.5 h-5.5"></i>
+          </div>
+
+          <!-- Academic card -->
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/5 group-hover:border-accentGold/20 transition-all duration-300">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+              <div>
+                <span class="inline-block text-[10px] sm:text-xs font-bold font-outfit uppercase px-2.5 py-1 bg-accentGold/10 text-accentGold border border-accentGold/20 rounded-md mb-2">Currently Pursuing</span>
+                <h3 class="text-xl sm:text-2xl font-outfit font-extrabold text-white">B.Tech in Data Science</h3>
+              </div>
+              <div class="flex items-center text-xs font-semibold text-gray-400 space-x-1">
+                <i data-lucide="calendar" class="text-accentGold w-3.5 h-3.5"></i>
+                <span>2023 - 2027 (Expected)</span>
+              </div>
+            </div>
+            
+            <h4 class="text-base sm:text-lg font-bold text-gray-200 font-outfit mb-1">Pragati Engineering College</h4>
+            <div class="flex items-center text-xs text-gray-400 space-x-1 mb-4">
+              <i data-lucide="map-pin" class="text-accentGold w-3 h-3"></i>
+              <span>Surampalem, Andhra Pradesh, India</span>
+            </div>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-6">A specialized engineering program focused on statistics, computing, artificial intelligence, and database structures.</p>
+            
+            <div class="border-t border-white/5 pt-6">
+              <h5 class="text-sm font-extrabold text-white uppercase tracking-wider mb-4 font-outfit">Key Highlights & Learnings:</h5>
+              <ul class="space-y-3">
+                <li class="flex items-start text-xs sm:text-sm text-gray-400 space-x-2">
+                  <i data-lucide="check-circle-2" class="text-accentGold w-4.5 h-4.5 shrink-0 mt-0.5"></i>
+                  <span>Advanced Study in Machine Learning algorithms and Neural Networks</span>
+                </li>
+                <li class="flex items-start text-xs sm:text-sm text-gray-400 space-x-2">
+                  <i data-lucide="check-circle-2" class="text-accentGold w-4.5 h-4.5 shrink-0 mt-0.5"></i>
+                  <span>Deep exploration of SQL, data extraction, and relational database schema designs</span>
+                </li>
+                <li class="flex items-start text-xs sm:text-sm text-gray-400 space-x-2">
+                  <i data-lucide="check-circle-2" class="text-accentGold w-4.5 h-4.5 shrink-0 mt-0.5"></i>
+                  <span>Participated in collegiate web design workshops and technical hackathons</span>
+                </li>
+                <li class="flex items-start text-xs sm:text-sm text-gray-400 space-x-2">
+                  <i data-lucide="check-circle-2" class="text-accentGold w-4.5 h-4.5 shrink-0 mt-0.5"></i>
+                  <span>Active member of the Department of Data Science Research Club</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME SECTION -->
+  <section id="resume" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-5xl mx-auto z-10 relative">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-accentGold font-extrabold mb-2 font-outfit">My Resume</h2>
+        <p class="text-3xl sm:text-4xl font-outfit font-extrabold text-white">Curriculum Vitae</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accentGold to-accentAmber mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Download CTA -->
+        <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/5 space-y-6">
+            <div class="bg-accentGold/10 p-4 rounded-2xl w-fit mx-auto lg:mx-0">
+              <i data-lucide="file-text" class="text-accentGold w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-outfit font-extrabold text-white">Interested in working together?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Download my complete resume to inspect my programming skills, data-science coursework accomplishments, and full-stack projects.</p>
+            
+            <div class="space-y-3">
+              <div class="flex items-center space-x-2 text-xs text-gray-400 justify-center lg:justify-start">
+                <i data-lucide="star" class="text-yellow-400 w-3.5 h-3.5"></i>
+                <span>ATS-Optimized Layout</span>
+              </div>
+              <div class="flex items-center space-x-2 text-xs text-gray-400 justify-center lg:justify-start">
+                <i data-lucide="star" class="text-yellow-400 w-3.5 h-3.5"></i>
+                <span>Available in PDF Format</span>
+              </div>
+            </div>
+
+            <button onclick="downloadResume()" class="w-full py-4 bg-gradient-to-r from-accentGold to-accentAmber hover:from-yellow-500 hover:to-amber-500 text-white font-bold rounded-xl flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-accentGold/20">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              <span>Download Resume PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Resume Preview -->
+        <div class="lg:col-span-7">
+          <div class="relative group max-w-md mx-auto">
+            <div class="absolute inset-0 bg-gradient-to-tr from-accentGold/10 to-accentAmber/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <div class="relative bg-[#0F1013] border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-8 space-y-6 transition-all duration-300 transform group-hover:scale-[1.01] hover:border-accentGold/20">
+              <!-- Visual Header -->
+              <div class="flex justify-between items-start pb-6 border-b border-white/5">
+                <div>
+                  <h4 class="text-lg font-outfit font-extrabold text-white">SRI SAI</h4>
+                  <p class="text-[10px] text-accentGold font-bold uppercase tracking-wider mt-0.5">B.Tech Data Science Student</p>
+                </div>
+                <div class="text-right text-[9px] text-gray-400 space-y-0.5">
+                  <p>contact@srisai.dev</p>
+                  <p>github.com/srisaiisetti</p>
+                  <p>Andhra Pradesh, IN</p>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="space-y-2">
+                <h5 class="text-[10px] font-extrabold text-white uppercase tracking-widest border-b border-white/5 pb-1">Education</h5>
+                <div class="flex justify-between text-[11px]">
+                  <span class="font-bold text-gray-300">B.Tech in Data Science</span>
+                  <span class="text-gray-400">2023 - 2027</span>
+                </div>
+                <p class="text-[10px] text-gray-400">Pragati Engineering College (CGPA: 8.5+ expected)</p>
+              </div>
+
+              <!-- Skills -->
+              <div class="space-y-2">
+                <h5 class="text-[10px] font-extrabold text-white uppercase tracking-widest border-b border-white/5 pb-1">Technical Skills</h5>
+                <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-[10px] text-gray-400">
+                  <p><strong class="text-gray-300">Languages:</strong> Python, SQL, Javascript</p>
+                  <p><strong class="text-gray-300">Web Tech:</strong> React, HTML5, CSS3</p>
+                  <p><strong class="text-gray-300">Tools:</strong> Git, GitHub, VS Code</p>
+                  <p><strong class="text-gray-300">Data Sci:</strong> NumPy, Pandas, Scikit-learn</p>
+                </div>
+              </div>
+
+              <!-- Projects -->
+              <div class="space-y-2">
+                <h5 class="text-[10px] font-extrabold text-white uppercase tracking-widest border-b border-white/5 pb-1">Core Projects</h5>
+                <div class="space-y-1">
+                  <div class="flex justify-between text-[10px] font-bold text-gray-300">
+                    <span>YouTube Clone UI</span>
+                    <span>React.js, CSS</span>
+                  </div>
+                  <p class="text-[9px] text-gray-400">High fidelity clone mapping video grids, feed sorting, sidebar drawers.</p>
+                </div>
+                <div class="space-y-1">
+                  <div class="flex justify-between text-[10px] font-bold text-gray-300">
+                    <span>Restaurant Website</span>
+                    <span>HTML, CSS, JS</span>
+                  </div>
+                  <p class="text-[9px] text-gray-400">Fully responsive UI featuring ordering workflows and online bookings.</p>
+                </div>
+              </div>
+
+              <!-- Hover Download Overlay -->
+              <div class="absolute inset-0 bg-darkBg/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button onclick="downloadResume()" class="px-5 py-2.5 bg-accentGold text-white rounded-lg font-bold text-xs shadow-lg shadow-accentGold/30 flex items-center space-x-1.5 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                  <span>Download PDF</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative bg-white/[0.01]">
+    <div class="max-w-7xl mx-auto z-10 relative">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-accentGold font-extrabold mb-2 font-outfit">Get In Touch</h2>
+        <p class="text-3xl sm:text-4xl font-outfit font-extrabold text-white">Contact Me</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accentGold to-accentAmber mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        <!-- Details Column -->
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+          <div class="glass-panel p-8 rounded-3xl border border-white/5 space-y-8 flex-grow">
+            <h3 class="text-2xl font-outfit font-extrabold text-white">Contact Information</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Have an internship opportunity, a project proposal, or just want to say hello? Drop a message, and I'll get back to you within 24 hours.</p>
+
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="bg-accentGold/10 p-3 rounded-xl text-accentGold">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-200">Email Address</h4>
+                  <a href="mailto:contact@srisai.dev" class="text-xs sm:text-sm text-accentGold hover:underline">contact@srisai.dev</a>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="bg-accentGold/10 p-3 rounded-xl text-accentGold">
+                  <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-200">College</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">Pragati Engineering College</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="bg-accentGold/10 p-3 rounded-xl text-accentGold">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-200">Location</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">East Godavari, Andhra Pradesh, India</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Connect Socials -->
+            <div class="pt-6 border-t border-white/5">
+              <h4 class="text-sm font-bold text-gray-300 mb-4 font-outfit">Connect Socially</h4>
+              <div class="flex items-center space-x-3">
+                <a href="https://github.com/srisaiisetti" target="_blank" class="p-3 bg-white/5 hover:bg-accentGold/10 hover:text-accentGold border border-white/10 hover:border-accentGold/30 rounded-xl transition-all duration-300">
+                  <i data-lucide="github" class="w-4.5 h-4.5 text-accentGold"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/isetti-srisai-10b5a6322?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="p-3 bg-white/5 hover:bg-accentGold/10 hover:text-accentGold border border-white/10 hover:border-accentGold/30 rounded-xl transition-all duration-300">
+                  <i data-lucide="linkedin" class="w-4.5 h-4.5 text-accentGold"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="glass-panel p-8 rounded-3xl border border-white/5 h-full relative overflow-hidden">
+            
+            <!-- Success check container -->
+            <div id="success-panel" class="absolute inset-0 bg-darkCard z-20 transform translate-y-full opacity-0 transition-all duration-500 flex flex-col justify-center items-center text-center p-8 space-y-4">
+              <div class="bg-accentGold/10 p-4 rounded-full text-accentGold">
+                <i data-lucide="check-circle-2" class="w-12 h-12"></i>
+              </div>
+              <h3 class="text-2xl font-outfit font-extrabold text-white">Message Sent Successfully!</h3>
+              <p class="text-gray-400 max-w-sm text-sm">Thank you for reaching out, Sri Sai. I have received your message and will review it as soon as possible.</p>
+              <button onclick="resetContactForm()" class="px-6 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-200 text-xs font-semibold rounded-lg">Send Another Message</button>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="handleContactSubmit(event)" id="contact-form" class="space-y-6">
+              <h3 class="text-2xl font-outfit font-extrabold text-white mb-6">Send Me a Message</h3>
+
+              <!-- Name -->
+              <div class="space-y-2">
+                <label class="block text-xs font-bold font-outfit text-gray-300 uppercase tracking-wider">Your Name</label>
+                <input type="text" id="form-name" placeholder="John Doe" class="w-full px-4 py-3.5 bg-darkBg border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accentGold/20 focus:border-accentGold transition-all">
+                <p id="err-name" class="text-red-500 text-xs flex items-center space-x-1 mt-1 hidden">
+                  <i data-lucide="alert-circle" class="w-3 h-3"></i>
+                  <span class="pl-1">Name is required</span>
+                </p>
+              </div>
+
+              <!-- Email -->
+              <div class="space-y-2">
+                <label class="block text-xs font-bold font-outfit text-gray-300 uppercase tracking-wider">Email Address</label>
+                <input type="email" id="form-email" placeholder="johndoe@example.com" class="w-full px-4 py-3.5 bg-darkBg border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accentGold/20 focus:border-accentGold transition-all">
+                <p id="err-email" class="text-red-500 text-xs flex items-center space-x-1 mt-1 hidden">
+                  <i data-lucide="alert-circle" class="w-3 h-3"></i>
+                  <span class="pl-1" id="err-email-text">Email is required</span>
+                </p>
+              </div>
+
+              <!-- Message -->
+              <div class="space-y-2">
+                <label class="block text-xs font-bold font-outfit text-gray-300 uppercase tracking-wider">Message</label>
+                <textarea id="form-message" rows="5" placeholder="Tell me about your internship opportunity..." class="w-full px-4 py-3.5 bg-darkBg border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accentGold/20 focus:border-accentGold transition-all resize-none"></textarea>
+                <p id="err-message" class="text-red-500 text-xs flex items-center space-x-1 mt-1 hidden">
+                  <i data-lucide="alert-circle" class="w-3 h-3"></i>
+                  <span class="pl-1">Message is required</span>
+                </p>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" id="submit-btn" class="w-full py-4 bg-gradient-to-r from-accentGold to-accentAmber hover:from-yellow-500 hover:to-amber-500 text-white font-bold rounded-xl flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-accentGold/20">
+                <i data-lucide="send" class="w-4.5 h-4.5"></i>
+                <span id="submit-text">Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-darkBg border-t border-white/5 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[150px] bg-accentGold/5 rounded-full blur-[60px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto z-10 relative flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <a href="#home" class="flex items-center space-x-2 group">
+        <div class="bg-gradient-to-tr from-accentGold to-accentAmber p-1.5 rounded-md text-white">
+          <i data-lucide="cpu" class="w-4 h-4"></i>
+        </div>
+        <span class="font-outfit font-extrabold text-lg bg-gradient-to-r from-white via-amber-200 to-amber-400 bg-clip-text text-transparent">SRI SAI</span>
+      </a>
+
+      <!-- Quick Nav -->
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
+        <a href="#home" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">Home</a>
+        <a href="#about" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">About</a>
+        <a href="#skills" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">Skills</a>
+        <a href="#projects" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">Projects</a>
+        <a href="#education" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">Education</a>
+        <a href="#resume" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">Resume</a>
+        <a href="#contact" class="hover:text-accentGold capitalize transition-colors duration-300 font-medium">Contact</a>
+      </div>
+
+      <!-- Socials -->
+      <div class="flex items-center space-x-3">
+        <a href="https://github.com/srisaiisetti" target="_blank" class="p-2.5 bg-white/5 hover:bg-accentGold/10 hover:text-accentGold border border-white/10 hover:border-accentGold/30 rounded-xl transition-all duration-300" aria-label="GitHub">
+          <i data-lucide="github" class="w-4.5 h-4.5 text-accentGold"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/isetti-srisai-10b5a6322?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="p-2.5 bg-white/5 hover:bg-accentGold/10 hover:text-accentGold border border-white/10 hover:border-accentGold/30 rounded-xl transition-all duration-300" aria-label="LinkedIn">
+          <i data-lucide="linkedin" class="w-4.5 h-4.5 text-accentGold"></i>
+        </a>
+        <a href="mailto:contact@srisai.dev" class="p-2.5 bg-white/5 hover:bg-accentGold/10 hover:text-accentGold border border-white/10 hover:border-accentGold/30 rounded-xl transition-all duration-300" aria-label="Email">
+          <i data-lucide="mail" class="w-4.5 h-4.5 text-accentGold"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-white/5 text-center text-[10px] sm:text-xs text-gray-500">
+      <p>© <span id="footer-year">2026</span> Sri Sai. All rights reserved.</p>
+      <p class="mt-1 text-gray-600">Built as a B.Tech Data Science Internship Project portfolio. Designed with premium dark glassmorphism styling.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. Mobile Drawer Navigation toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    let isMenuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.style.maxHeight = '380px';
+        mobileMenu.style.opacity = '100';
+        mobileMenu.style.paddingTop = '16px';
+        mobileMenu.style.paddingBottom = '16px';
+        menuIcon.setAttribute('data-lucide', 'x');
+      } else {
+        closeMobileMenu();
+      }
+      lucide.createIcons();
+    });
+
+    function closeMobileMenu() {
+      isMenuOpen = false;
+      mobileMenu.style.maxHeight = '0';
+      mobileMenu.style.opacity = '0';
+      mobileMenu.style.paddingTop = '0';
+      mobileMenu.style.paddingBottom = '0';
+      menuIcon.setAttribute('data-lucide', 'menu');
+      lucide.createIcons();
+    }
+
+    // Close menu on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+
+    // 2. Custom Typewriter Animation
+    const titles = [
+      "B.Tech Data Science Student",
+      "Aspiring Full Stack Developer",
+      "AI & ML Enthusiast",
+      "Passionate Problem Solver"
+    ];
+    let titleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    const typingSpan = document.querySelector('.id-typing');
+
+    function typeWriter() {
+      const fullText = titles[titleIdx];
+      
+      if (!isDeleting) {
+        typingSpan.textContent = fullText.substring(0, charIdx + 1);
+        charIdx++;
+        typingSpeed = 80;
+
+        if (charIdx === fullText.length) {
+          typingSpeed = 1500; // Pause at the end
+          isDeleting = true;
+        }
+      } else {
+        typingSpan.textContent = fullText.substring(0, charIdx - 1);
+        charIdx--;
+        typingSpeed = 40;
+
+        if (charIdx === 0) {
+          isDeleting = false;
+          titleIdx = (titleIdx + 1) % titles.length;
+          typingSpeed = 500; // Pause before next word
+        }
+      }
+      setTimeout(typeWriter, typingSpeed);
+    }
+    
+    // Start typewriter
+    typeWriter();
+
+    // 3. Highlight navigation link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = ['home', 'about', 'skills', 'projects', 'education', 'resume', 'contact'];
+      const scrollPos = window.scrollY + 200;
+
+      sections.forEach(sect => {
+        const el = document.getElementById(sect);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            // Desktop active class swap
+            document.querySelectorAll('.nav-link').forEach(link => {
+              if (link.getAttribute('href') === `#${sect}`) {
+                link.className = "nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 text-accentGold bg-accentGold/10";
+              } else {
+                link.className = "nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-400 hover:text-accentGold hover:bg-white/5";
+              }
+            });
+
+            // Mobile active class swap
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+              if (link.getAttribute('href') === `#${sect}`) {
+                link.className = "mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-accentGold bg-accentGold/10";
+              } else {
+                link.className = "mobile-nav-link block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-accentGold hover:bg-white/5";
+              }
+            });
+          }
+        }
+      });
+    });
+
+    // 4. Project Tab Filtering
+    function filterProjects(category) {
+      // 1. Swap active filter button styles
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.id === `btn-filter-${category}`) {
+          btn.className = "filter-btn px-5 py-2 rounded-xl text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-accentGold to-accentAmber text-white shadow-lg shadow-accentGold/20 border border-transparent font-outfit";
+        } else {
+          btn.className = "filter-btn px-5 py-2 rounded-xl text-sm font-semibold uppercase tracking-wider bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5 font-outfit";
+        }
+      });
+
+      // 2. Hide/Show Project Cards
+      document.querySelectorAll('.project-card').forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 5. Resume download action (Real local download trigger)
+    function downloadResume() {
+      const link = document.createElement('a');
+      link.href = './Sri_Sai_Resume.pdf';
+      link.download = 'Sri_Sai_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 6. Contact Form validation & submission simulation
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      
+      const nameInp = document.getElementById('form-name');
+      const emailInp = document.getElementById('form-email');
+      const msgInp = document.getElementById('form-message');
+      
+      const errName = document.getElementById('err-name');
+      const errEmail = document.getElementById('err-email');
+      const errEmailText = document.getElementById('err-email-text');
+      const errMsg = document.getElementById('err-message');
+      
+      let isValid = true;
+      
+      // Reset errors
+      errName.classList.add('hidden');
+      errEmail.classList.add('hidden');
+      errMsg.classList.add('hidden');
+      nameInp.className = "w-full px-4 py-3.5 bg-darkBg border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accentGold/20 focus:border-accentGold transition-all";
+      emailInp.className = "w-full px-4 py-3.5 bg-darkBg border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accentGold/20 focus:border-accentGold transition-all";
+      msgInp.className = "w-full px-4 py-3.5 bg-darkBg border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accentGold/20 focus:border-accentGold transition-all resize-none";
+
+      // Validate Name
+      if (!nameInp.value.trim()) {
+        isValid = false;
+        errName.classList.remove('hidden');
+        nameInp.className = "w-full px-4 py-3.5 bg-darkBg border border-red-500 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all";
+      }
+
+      // Validate Email
+      if (!emailInp.value.trim()) {
+        isValid = false;
+        errEmailText.textContent = "Email is required";
+        errEmail.classList.remove('hidden');
+        emailInp.className = "w-full px-4 py-3.5 bg-darkBg border border-red-500 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all";
+      } else if (!/\S+@\S+\.\S+/.test(emailInp.value.trim())) {
+        isValid = false;
+        errEmailText.textContent = "Invalid email format";
+        errEmail.classList.remove('hidden');
+        emailInp.className = "w-full px-4 py-3.5 bg-darkBg border border-red-500 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all";
+      }
+
+      // Validate Message
+      if (!msgInp.value.trim()) {
+        isValid = false;
+        errMsg.classList.remove('hidden');
+        msgInp.className = "w-full px-4 py-3.5 bg-darkBg border border-red-500 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all resize-none";
+      }
+
+      if (!isValid) return;
+
+      // Simulate submission loading
+      const submitBtn = document.getElementById('submit-btn');
+      const submitText = document.getElementById('submit-text');
+      
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.6';
+      submitText.textContent = 'Sending message...';
+
+      setTimeout(() => {
+        // Show success overlay
+        const successPanel = document.getElementById('success-panel');
+        successPanel.classList.remove('translate-y-full', 'opacity-0');
+        successPanel.classList.add('translate-y-0', 'opacity-100');
+        
+        // Reset form inputs
+        nameInp.value = '';
+        emailInp.value = '';
+        msgInp.value = '';
+
+        // Reset submit button
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitText.textContent = 'Send Message';
+      }, 1500);
+    }
+
+    function resetContactForm() {
+      const successPanel = document.getElementById('success-panel');
+      successPanel.classList.remove('translate-y-0', 'opacity-100');
+      successPanel.classList.add('translate-y-full', 'opacity-0');
+    }
+
+    // Set footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
